@@ -18,20 +18,19 @@ for (let i = 0; i < tipBtn.length; i++) {
   });
 }
 
-// Reset Action
-reset.addEventListener("click", () => {
-  billAmount.value = '';
-  people.value = '';
-  custom.value = '';
-  tipAmount.textContent = "$ 00.00";
-  tipTotal.textContent = "$ 00.00";
-});
-
 // Custom tip
 custom.addEventListener("keyup", (e) => {
   const noOfPeople = people.value;
   let customPercentValue = e.target.value;
   calculatePercentage(customPercentValue, noOfPeople);
+});
+// Reset Action
+reset.addEventListener("click", () => {
+  billAmount.value = "";
+  people.value = "";
+  custom.value = "";
+  tipAmount.textContent = "$ 00.00";
+  tipTotal.textContent = "$ 00.00";
 });
 
 // Calculate function
@@ -46,8 +45,11 @@ function calculatePercentage(percent, quantity) {
     return;
   } else {
     const tip = parseFloat((percent / 100) * userBill);
-    const tipPerPerson = (tip / quantity).toFixed(2);
-    tipTotal.textContent = `$ ` + tip;
+    const tipPerPerson = parseFloat((tip / quantity).toFixed(2));
+    const totalPerPerson = userBill / quantity + tipPerPerson;
+    // console.log(typeof tipPerPerson);
+    // Displaying the result
     tipAmount.textContent = `$ ` + tipPerPerson;
+    tipTotal.textContent = `$ ` + totalPerPerson;
   }
 }
