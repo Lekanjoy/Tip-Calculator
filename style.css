@@ -1,0 +1,223 @@
+@import url('https: //fonts.google.com/specimen/Space+Mono');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Space Mono' sans-serif;
+    -webkit-tap-highlight-color: transparent;
+
+}
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+:root {
+    --Strongcyan: hsl(172, 67%, 45%);
+    --Verydarkcyan: hsl(183, 100%, 15%);
+    --Darkgrayishcyan: hsl(186, 14%, 43%);
+    --Grayishcyan: hsl(184, 14%, 56%);
+    --Lightgrayishcyan: hsl(185, 41%, 84%);
+    --Verylightgrayishcyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--Lightgrayishcyan);
+}
+label, .tipPercent p{
+    color: var(--Grayishcyan);
+    font-weight: 700;
+}
+
+
+.name {
+    margin-bottom: 1.2rem;
+    width: 100%;
+    height: 10vh;
+    padding: 20px;
+}
+
+.name p {
+    margin-bottom: .3rem;
+    font-weight: 800;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: .7rem;
+    color: var(--Darkgrayishcyan);
+}
+
+.wrapper {
+    width: 100%;
+    height: auto;
+    background-color: var(--White);
+    border-radius: 40px 40px 0 0;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    padding: 1.3rem;
+
+}
+
+.wrapper .calculate,
+.wrapper .result {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+}
+
+#amount, #tipBtn, #people{
+    
+    margin-top: .4rem;
+}
+
+input[type=number]{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    background: var(--Verylightgrayishcyan);  
+    text-align: right;
+    color: var(--Verydarkcyan);
+    font-weight: 700;
+    font-size: 24px;
+    
+
+}
+input[type=number]:focus, #custom:focus{
+    border: 3px solid var(--Lightgrayishcyan);
+    cursor: pointer;
+}
+#custom{
+    width: 100%;
+    background: var(--Verylightgrayishcyan);
+    color: var(--Darkgrayishcyan);
+    font-weight: 500;
+}
+
+.bill, .people{
+    margin: 1rem 0;
+    position: relative;
+}
+.bill .dollar, .people img{
+    position: absolute;
+    top: 57%;
+    left: 15px;
+}
+.tipBtn{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+.tipBtn button:hover{
+    background: var(--Strongcyan);
+    color: var(--Verydarkcyan);
+    cursor: pointer;
+}
+
+.tipBtn button:active{
+    background-color: red;
+}
+.tipBtn input, button{
+    height: 40px;
+    text-align: center;
+    background-color: var(--Verydarkcyan);
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    color: var(--White);
+    font-weight: 400;
+
+
+}
+#error{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-size: small;
+    font-weight: 600;
+    color: rgb(249, 82, 82);
+    word-spacing: .1rem;
+    display: none;
+}
+
+.result{
+    background-color: var(--Verydarkcyan);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    color: var(--White);
+
+}
+.result span{
+    color: var(--Grayishcyan);
+    font-weight: 500;
+}
+.result .tipAmount, .result .total{
+    display: flex;
+    justify-content: space-between;
+    margin: rem 0;
+
+}
+
+.tip{
+    color: var(--Strongcyan);
+    font-weight: 700;
+    font-size: 24px;
+}
+.result button{
+    background: var(--Strongcyan);
+    color: var(--Verydarkcyan);
+    margin: 2rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 8px;
+    cursor: pointer;
+
+}
+
+
+@media screen and (min-width:978px) {
+
+    .container {
+        justify-content: center;
+        padding: 0 2rem;
+    }
+
+    .name {
+        height: auto;
+    }
+
+    .wrapper {
+        width: 800px;
+        height: auto;
+        border-radius: 10px;
+        flex-direction: row;
+        padding:  20px;
+        gap: 2rem;
+        
+    }
+    .bill, .result{
+        width: 50%;
+    }
+    .wrapper .result{
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+    #amount{
+        width: 200%;
+    }
+
+}
